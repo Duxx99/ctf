@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Keycloak API</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: "Courier New", Courier, monospace;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff2e2e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
+        textarea {
+            width: 95%;
+            height: 150px;
+            background-color: #1a1a1a;
+            border: 1px solid #ff2e2e;
+            color: #e0e0e0;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff2e2e;
+            border: none;
+            color: #0d0d0d;
+            cursor: pointer;
+        }
+        pre {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 10px;
+            color: #e0e0e0;
+            white-space: pre-wrap; /* This enables text wrapping inside the <pre> element */
+            word-wrap: break-word; /* This forces long words to break and wrap */
+            overflow-x: auto; /* Adds horizontal scroll bar if needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Query Keycloak API</h1>
+    <p>"Sometimes, the only way to evolve is to open the floodgates."</p>
+    <form action="/queryKeycloak" method="POST">
+        <label for="raw_request">Paste your Raw HTTP Request:</label>
+        <textarea name="raw_request" id="raw_request"></textarea>
+        <br>
+        <button type="submit">Send Request</button>
+    </form>
+
+    {% if response_data %}
+        <h2>Response:</h2>
+        <pre>{{ response_data | tojson(indent=2) }}</pre>
+    {% endif %}
+</body>
+</html>

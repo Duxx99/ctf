@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: "Courier New", Courier, monospace;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff2e2e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
+        input, select {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ff2e2e;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff2e2e;
+            border: none;
+            color: #0d0d0d;
+            cursor: pointer;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border-left: 4px solid #ff2e2e;
+        }
+        a {
+            color: #ff2e2e;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Resistance</h1>
+    <p>"Remember, remember... we are fsociety."</p>
+    <form id="chat-form" action="/dashboard" method="POST">
+        <input type="text" name="title" placeholder="Name your chat room" required>
+        <label for="visibility">Visibility:</label>
+        <select name="visibility" id="visibility">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+        <button type="submit">Create Chat Room</button>
+    </form>
+    <h2>Available Public Chat Rooms</h2>
+    <ul>
+        {% for chat, chat_id in chats %}
+            <li>{{ chat.title }} - <a href="/chat/{{ chat_id }}">Enter Chat</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/logout">Logout</a>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const visibility = formData.get('visibility');
+            
+            fetch('/dashboard', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    return response.json();
+                } else {
+                    return response.text();
+                }
+            })
+            .then(data => {
+                if (typeof data === 'object' && data.chat_id && visibility === 'private') {
+                    alert('Private chat created with ID: ' + data.chat_id);
+                } else {
+                    window.location.reload();
+                }
+            })
+            .catch(error => {
+                console.error('Error creating chat:', error);
+                alert('Failed to create chat. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

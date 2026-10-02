@@ -1,0 +1,59 @@
+<!-- templates/user.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        /* Background and Text Colors */
+        body {
+            background-color: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Heading Style */
+        h1 {
+            font-size: 3em;
+            color: #f00;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraphs */
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Links */
+        a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p, a {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>User Dashboard</h1>
+    <p>Welcome, User! Here are your resources.</p>
+    <a href="/logout">Logout</a>
+</body>
+</html>

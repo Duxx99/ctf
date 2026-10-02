@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Home</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #ff2e2e;
+        }
+        textarea {
+            width: 80%;
+            height: 50px;
+            background-color: #1a1a1a;
+            border: 1px solid #ff2e2e;
+            color: #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff2e2e;
+            border: none;
+            color: #0d0d0d;
+            cursor: pointer;
+        }
+        a {
+            color: #ff2e2e;
+            text-decoration: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat Room</h1>
+    {% if current_user.is_authenticated %}
+        <form action="/" method="POST">
+            <textarea name="content" placeholder="Enter your message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a> | <a href="/register">Register</a>
+    {% endif %}
+</body>
+</html>

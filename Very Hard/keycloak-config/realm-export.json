@@ -1,0 +1,90 @@
+{
+  "realm": "f50c13ty-r34lm",
+  "enabled": true,
+  "users": [
+    {
+      "username": "elliot",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "f$0c!3ty",
+          "temporary": false
+        }
+      ],
+      "attributes": {
+        "description": "Founder of fsociety and a brilliant hacker."
+      }
+    },
+    {
+      "username": "darlene",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "wh1t3r0$3",
+          "temporary": false
+        }
+      ],
+      "attributes": {
+        "description": "Elliot’s sister and a core member of fsociety."
+      }
+    },
+    {
+      "username": "mrrobot",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "r3v0|ut!0n",
+          "temporary": false
+        }
+      ],
+      "attributes": {
+        "description": "The anarchist leader of fsociety."
+      }
+    },
+    {
+      "username": "angela",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "c0ur@ge",
+          "temporary": false
+        }
+      ],
+      "attributes": {
+        "description": "Elliot’s childhood friend, working inside E Corp."
+      }
+    },
+    {
+      "username": "tyrell",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "b|u3pr!nt$",
+          "temporary": false
+        }
+      ],
+      "attributes": {
+        "description": "Ambitious former E Corp executive with dark ambitions. Flag: ACVCTF{688787d8ff144c502c7f5cffaafe2cc5}"
+      }
+    },
+    {
+      "username": "whiterose",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "d@rk@rmy",
+          "temporary": false
+        }
+      ],
+      "attributes": {
+        "description": "Leader of the Dark Army, powerful and enigmatic."
+      }
+    }
+  ]
+}

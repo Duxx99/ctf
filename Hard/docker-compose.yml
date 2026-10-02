@@ -1,0 +1,40 @@
+# docker-compose.yml
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    # ports:
+    #   - "5000:5000"
+    volumes:
+      - ./API/db:/app/db
+    environment:
+      # Add environment variables if needed
+      - ENV=production
+    restart: always
+    networks:
+      hard:
+        ipv4_address: 172.21.0.2
+
+  graphql:
+    build:
+      context: ./GraphQL
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      # Add environment variables if needed
+      - ENV=production
+    restart: always
+    networks:
+      hard:
+        ipv4_address: 172.21.0.3
+
+networks:
+  hard:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16

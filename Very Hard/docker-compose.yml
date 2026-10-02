@@ -1,0 +1,63 @@
+version: '2'
+
+services:
+  flask_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:5000"
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - keycloak
+    restart: always
+    networks:
+      custom_network:
+        ipv4_address: 172.20.0.2
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.3
+    environment:
+      - KEYCLOAK_ADMIN=whiterose
+      - KEYCLOAK_ADMIN_PASSWORD=d@rk@rmy
+      - KC_DB=postgres
+      - KC_DB_URL_HOST=postgres-db
+      - KC_DB_URL_PORT=5432
+      - KC_DB_USERNAME=keycloak
+      - KC_DB_PASSWORD=keycloak
+      - KC_DB_DATABASE=keycloak
+      - KC_HTTP_ENABLED=true
+    volumes:
+      - ./keycloak-config/realm-export.json:/opt/keycloak/data/import/realm-export.json
+    depends_on:
+      - postgres-db
+    command: ["start-dev", "--import-realm"]
+    restart: always
+    networks:
+      custom_network:
+        ipv4_address: 172.20.0.3
+
+  postgres-db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=keycloak
+      - POSTGRES_DB=keycloak
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      custom_network:
+        ipv4_address: 172.20.0.4
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  custom_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

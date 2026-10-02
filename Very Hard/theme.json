@@ -1,0 +1,95 @@
+{
+    "themeName": "Mr. Robot Theme",
+    "fonts": {
+      "primaryFont": "\"Courier New\", Courier, monospace"
+    },
+    "colors": {
+      "backgroundColor": "#0d0d0d",
+      "primaryTextColor": "#e0e0e0",
+      "accentColor": "#ff2e2e",
+      "secondaryTextColor": "#999999",
+      "inputBackgroundColor": "#1a1a1a",
+      "inputBorderColor": "#ff2e2e"
+    },
+    "components": {
+      "headings": {
+        "color": "#ff2e2e",
+        "textAlign": "center",
+        "marginBottom": "20px"
+      },
+      "paragraphs": {
+        "color": "#999999",
+        "fontStyle": "italic",
+        "textAlign": "center"
+      },
+      "inputs": {
+        "background": "#1a1a1a",
+        "border": "1px solid #ff2e2e",
+        "color": "#e0e0e0",
+        "padding": "10px"
+      },
+      "buttons": {
+        "backgroundColor": "#ff2e2e",
+        "textColor": "#0d0d0d",
+        "border": "none",
+        "cursor": "pointer",
+        "padding": "10px 20px"
+      },
+      "links": {
+        "color": "#ff2e2e",
+        "textDecoration": "none"
+      },
+      "listItems": {
+        "margin": "10px 0",
+        "padding": "10px",
+        "backgroundColor": "#1a1a1a",
+        "borderLeft": "4px solid #ff2e2e"
+      }
+    },
+    "css": {
+      "body": {
+        "backgroundColor": "#0d0d0d",
+        "color": "#e0e0e0",
+        "fontFamily": "\"Courier New\", Courier, monospace"
+      },
+      "h1": {
+        "color": "#ff2e2e",
+        "textAlign": "center",
+        "marginBottom": "20px"
+      },
+      "p": {
+        "color": "#999",
+        "fontStyle": "italic",
+        "textAlign": "center"
+      },
+      "input": {
+        "margin": "10px",
+        "padding": "10px",
+        "border": "1px solid #ff2e2e",
+        "backgroundColor": "#1a1a1a",
+        "color": "#e0e0e0"
+      },
+      "button": {
+        "padding": "10px 20px",
+        "backgroundColor": "#ff2e2e",
+        "border": "none",
+        "color": "#0d0d0d",
+        "cursor": "pointer"
+      },
+      "a": {
+        "color": "#ff2e2e",
+        "textDecoration": "none"
+      },
+      "ul": {
+        "listStyleType": "none",
+        "padding": "0"
+      },
+      "li": {
+        "margin": "10px 0",
+        "padding": "10px",
+        "backgroundColor": "#1a1a1a",
+        "borderLeft": "4px solid #ff2e2e"
+      }
+    }
+  }
+  
